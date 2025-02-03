@@ -16,6 +16,11 @@
 			path = iOSApp2;
 			sourceTree = "<group>";
 		};
+		F37467502D50033000EB459B /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			children = (
 				F374673D2D5002E400EB459B /* iOSApp2 */,
 				F374673C2D5002E400EB459B /* Products */,
+				F37467502D50033000EB459B /* Views */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +68,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F374673D2D5002E400EB459B /* iOSApp2 */,
+				F37467502D50033000EB459B /* Views */,
 			);
 			name = iOSApp2;
 			packageProductDependencies = (

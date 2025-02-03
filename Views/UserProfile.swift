@@ -7,12 +7,43 @@
 
 import SwiftUI
 
-struct UserProfile: View {
+
+struct UserProfileView: View {
+    var user: User
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            // Gradient background
+            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+
+            VStack {
+                Text("Name: \(user.name)")
+                    .font(.largeTitle)
+                    .padding()
+
+                Text("Order History:")
+                    .font(.title2)
+                    .padding()
+
+                List(user.orderHistory, id: \.self) { order in
+                    VStack(alignment: .leading) {
+                        Text("Coffee Type: \(order.coffeeType)")
+                        Text("Size: \(order.coffeeSize)")
+                        Text("Add-Ons: \(order.addOns.joined(separator: ", "))")
+                        Text("Special Request: \(order.specialRequest)")
+                    }
+                    .padding()
+                }
+            }
+            .navigationTitle("User Profile")
+        }
     }
 }
 
 #Preview {
-    UserProfile()
+    UserProfileView(user: User(name: "Cristina", orderHistory: [
+        CoffeeOrder(name: "Cristina", coffeeSize: "Small", coffeeType: "Black", addOns: ["Sugar"], specialRequest: ""),
+        CoffeeOrder(name: "Cristina", coffeeSize: "Large", coffeeType: "Cream", addOns: ["Sugar"], specialRequest: "")
+    ]))
 }
